@@ -1,6 +1,6 @@
 FROM criptext/ubuntu-base
 
-RUN add-apt-repository ppa:cwchien/gradle
+RUN add-apt-repository -y ppa:cwchien/gradle
 
 RUN apt-get update
 
