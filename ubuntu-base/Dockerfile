@@ -1,6 +1,6 @@
 FROM ubuntu:12.04
 
-MAINTAINER Markos Calderon <markos@criptext.com>
+MAINTAINER Luis Loaiza <luis@criptext.com>
 
 RUN apt-get update
 
