@@ -2,14 +2,17 @@ FROM ubuntu:12.04
 
 MAINTAINER Luis Loaiza <luis@criptext.com>
 
+RUN apt-get update 
+
+RUN apt-get install --no-install-recommends -y wget nano curl make g++ bzip2 python-software-properties
+
 # New supervisord in repo
 RUN add-apt-repository ppa:schooltool-owners/trunk
 
-RUN apt-get update
-
 RUN apt-get upgrade
 
-RUN apt-get install --no-install-recommends -y wget nano curl supervisor make g++ bzip2 python-software-properties
+RUN apt-get install supervisor
+
 
 # Install Node
 
