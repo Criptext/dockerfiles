@@ -9,6 +9,7 @@ RUN apt-get --yes --force-yes install --no-install-recommends -y wget nano curl 
 RUN apt-get install --no-install-recommends -y wget nano curl
 
 # New supervisord in repo
+RUN apt-get install software-properties-common
 RUN add-apt-repository ppa:schooltool-owners/trunk
 RUN apt-get --yes --force-yes upgrade
 RUN apt-get --yes --force-yes install supervisor
