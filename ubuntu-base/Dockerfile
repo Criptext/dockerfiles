@@ -1,4 +1,4 @@
-FROM node:argon
+FROM ubuntu:12.04
 
 MAINTAINER Luis Loaiza <luis@criptext.com>
 
@@ -9,10 +9,15 @@ RUN apt-get --yes --force-yes install --no-install-recommends -y wget nano curl 
 RUN apt-get install --no-install-recommends -y wget nano curl
 
 # New supervisord in repo
-RUN apt-get --yes --force-yes install software-properties-common
 RUN add-apt-repository ppa:schooltool-owners/trunk
 RUN apt-get --yes --force-yes upgrade
 RUN apt-get --yes --force-yes install supervisor
+
+
+# Install Node
+
+RUN curl --silent --location https://deb.nodesource.com/setup_4.x | bash -
+RUN apt-get install --no-install-recommends -y nodejs
 
 # Config supervisor
 RUN mkdir -p /var/log/supervisor
