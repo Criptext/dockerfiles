@@ -2,9 +2,17 @@ FROM ubuntu:12.04
 
 MAINTAINER Luis Loaiza <luis@criptext.com>
 
+# add this repo to get the g++4.8 installing
+RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
+
 RUN apt-get update
 
 RUN apt-get --yes --force-yes install --no-install-recommends -y wget nano curl make g++ bzip2 python-software-properties
+
+# added new compiler but need to check if we need the line before
+RUN apt-get install -y g++-4.8
+RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
+
 
 RUN apt-get install --no-install-recommends -y wget nano curl
 
